@@ -1,0 +1,16 @@
+version: '3'
+services:
+  sslh:
+    image: juxo/arm32v7-sslh
+    networks:
+      - web
+    ports:
+      - "443:443"
+    environment:
+      - "HTTPS_HOST=rp_reverseproxy"
+      - "HTTPS_PORT=443"
+      - "SSH_HOST=192.168.0.238"
+      - "SSH_PORT=22"
+networks:
+  web:
+    external: true
